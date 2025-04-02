@@ -1,7 +1,7 @@
 google-generativeai
-# generation
-# vector
-# faiss-cpu
+generation
+vector
+faiss-cpu
 # streamlit
 # sentence_transformers
 # numpy
