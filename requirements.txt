@@ -1,8 +1,6 @@
-google.generativeai
-generation
-vector
+streamlit
 faiss-cpu
-# streamlit
-# sentence_transformers
-# numpy
-# pickle
+numpy
+sentence-transformers
+google-generativeai
+pickle5
