@@ -1,4 +1,4 @@
-google-generativeai
+google.generativeai
 generation
 vector
 faiss-cpu
