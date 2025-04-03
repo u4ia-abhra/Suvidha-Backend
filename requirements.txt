@@ -3,4 +3,3 @@ faiss-cpu
 numpy
 sentence-transformers
 google-generativeai
-pickle5
