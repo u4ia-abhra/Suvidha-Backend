@@ -1,3 +1,4 @@
+#generates a response by seding the retrieved data to the LLM
 import os
 import google.generativeai as genai
 import vector
