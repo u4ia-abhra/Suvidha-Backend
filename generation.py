@@ -1,8 +1,11 @@
+import os
 import google.generativeai as genai
 import vector
+from dotenv import load_dotenv
 
+load_dotenv()
 # Configure Gemini API
-genai.configure(api_key="AIzaSyDG5UnxQXW6JFUaLPQiGWiJ9w6ezKDHDwc")
+genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
 def generate_response(query):
     retrieved_docs = vector.retrieve_docs(query)
     context = "\n".join(retrieved_docs)

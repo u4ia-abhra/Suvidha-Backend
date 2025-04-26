@@ -1,3 +1,4 @@
+# Converts the given data into vector embeddings (faiss) and retrieves relevant data
 import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
