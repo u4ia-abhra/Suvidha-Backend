@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 # Configure Gemini API
 genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
-def generate_response(query):
-    retrieved_docs = vector.retrieve_docs(query)
+def generate_response(domain,query):
+    retrieved_docs = vector.retrieve_docs(domain,query)
     context = "\n".join(retrieved_docs)
 
     prompt = f"""You are a customer support assistant. Use the following knowledge base to answer the query:

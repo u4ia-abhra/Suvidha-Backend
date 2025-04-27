@@ -71,7 +71,7 @@ create_faiss_index(banking_docs, "banking")
 
 print("Knowledge bases for Ecommerce, Medical, and Banking stored separately in FAISS successfully!")
 
-# Retrieval function
+# # Retrieval function
 def retrieve_docs(domain, query, top_k=3):
     index = faiss.read_index(f"{domain}_index.bin")
     with open(f"{domain}_documents.pkl", "rb") as f:
