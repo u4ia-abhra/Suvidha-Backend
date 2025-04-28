@@ -48,4 +48,5 @@ Assistant:"""
 def ping():
     return "Server is live!", 200
 
-# No app.run() here
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5000)
