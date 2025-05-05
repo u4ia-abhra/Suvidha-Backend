@@ -3,6 +3,7 @@ numpy
 sentence-transformers
 google-generativeai
 python-dotenv
-torch  # <- add this manually for compatibility
+torch>=1.13.0
+transformers
 Flask
 gunicorn
