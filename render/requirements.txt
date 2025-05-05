@@ -7,3 +7,4 @@ torch>=1.13.0
 transformers
 Flask
 gunicorn
+psutil
