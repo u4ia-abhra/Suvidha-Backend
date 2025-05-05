@@ -35,7 +35,9 @@ User: {query}
 Assistant:"""
 
         # Generate response using Gemini
+        print("Starting generation...")
         answer = generation.generate_response(domain, full_prompt)
+        print("Finished generation.")
 
         return jsonify({"response": answer})
 
