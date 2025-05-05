@@ -9,8 +9,6 @@ app = Flask(__name__)
 def chat():
     try:
         data = request.json
-
-        # Get domain and query from request
         domain = data.get('domain', '').strip()
         query = data.get('query', '').strip()
 
@@ -19,9 +17,7 @@ def chat():
         if not query:
             return jsonify({"error": "Query is required."}), 400
 
-        # Retrieve relevant documents
         retrieved_docs = vector.retrieve_docs(domain, query)
-
         if not retrieved_docs:
             return jsonify({"error": "No relevant documents found."}), 404
 
@@ -34,7 +30,6 @@ Use the following knowledge base to answer the user's question accurately:
 User: {query}
 Assistant:"""
 
-        # Generate response using Gemini
         print("Starting generation...")
         answer = generation.generate_response(domain, full_prompt)
         print("Finished generation.")
@@ -45,12 +40,6 @@ Assistant:"""
         print(f"Error: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-
-# Health check route
 @app.route('/ping', methods=['GET'])
 def ping():
     return "Server is live!", 200
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Render injects PORT variable
-    app.run(host="0.0.0.0", port=port)
