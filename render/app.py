@@ -32,6 +32,9 @@ def chat():
 
         print(f"📚 Retrieving documents for domain: {domain}")
         retrieved_docs = vector.retrieve_docs(domain, query)
+        if retrieved_docs is None:
+            return jsonify({"error": "No relevant documents found or retrieval failed."}), 404
+
         log_memory("AFTER DOC RETRIEVAL")
 
         if not retrieved_docs:
@@ -63,3 +66,6 @@ Assistant:"""
 @app.route('/ping', methods=['GET'])
 def ping():
     return "Server is live!", 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
