@@ -1,9 +1,0 @@
-streamlit
-faiss-cpu
-numpy
-sentence-transformers
-google-generativeai
-python-dotenv
-torch  # <- add this manually for compatibility
-Flask
-gunicorn
