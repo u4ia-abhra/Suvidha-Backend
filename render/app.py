@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import generation
 import vector
+import os
 
 app = Flask(__name__)
 
