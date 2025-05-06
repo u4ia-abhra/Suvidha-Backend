@@ -6,6 +6,7 @@ import time
 import psutil
 
 app = Flask(__name__)
+CORS(app)
 
 def log_memory(label=""):
     process = psutil.Process(os.getpid())
