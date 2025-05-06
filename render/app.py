@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import generation
 import vector
 import os
@@ -6,7 +7,7 @@ import time
 import psutil
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 def log_memory(label=""):
     process = psutil.Process(os.getpid())
