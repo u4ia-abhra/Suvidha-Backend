@@ -44,7 +44,7 @@ def chat():
             return jsonify({"error": "No relevant documents found."}), 404
 
         context = "\n".join(retrieved_docs)[:2000]  # limit context length
-        full_prompt = f"""You are a helpful customer support chatbot for the {domain} domain. 
+        full_prompt = f"""You are Suvidha. A helpful customer support chatbot for the {domain} domain. 
 Use the following knowledge base to answer the user's question accurately:
 
 {context}
