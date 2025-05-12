@@ -93,5 +93,5 @@ _Add screenshots or a demo video link here._
 
 **Abhrajit Ghosh**  
 B.Tech CSE @ KIIT | AI Enthusiast  
-[LinkedIn](#) | [GitHub](#)
+[LinkedIn](#https://www.linkedin.com/in/abhrajitghosh/) | [GitHub](#)
 
