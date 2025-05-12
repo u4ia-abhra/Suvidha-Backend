@@ -75,15 +75,15 @@ _Add screenshots or a demo video link here._
 **Request Body:**
 ```json
 {
-  "domain": "banking",
-  "query": "How do I check my account balance?"
+    "domain": "ecommerce",
+    "query": "What is the price of a wireless mouse?"
 }
 ```
 
 **Response:**
 ```json
 {
-  "response": "To check your account balance, you can log in to your mobile banking app or visit your nearest branch..."
+    "response": "The price of the Wireless Mouse (ProductID: P001) is $19.99.\n"
 }
 ```
 
@@ -93,5 +93,5 @@ _Add screenshots or a demo video link here._
 
 **Abhrajit Ghosh**  
 B.Tech CSE @ KIIT | AI Enthusiast  
-[LinkedIn](https://www.linkedin.com/in/abhrajitghosh/) | [GitHub](#)
+[LinkedIn](https://www.linkedin.com/in/abhrajitghosh/) | [GitHub](https://github.com/u4ia-abhra)
 
