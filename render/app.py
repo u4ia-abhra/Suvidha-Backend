@@ -34,17 +34,16 @@ def chat():
 
         print(f"📚 Retrieving documents for domain: {domain}")
         retrieved_docs = vector.retrieve_docs(domain, query)
-        if retrieved_docs is None:
+        if not retrieved_docs:
             return jsonify({"error": "No relevant documents found or retrieval failed."}), 404
 
         log_memory("AFTER DOC RETRIEVAL")
 
-        if not retrieved_docs:
-            print("⚠️ No relevant documents found")
-            return jsonify({"error": "No relevant documents found."}), 404
+        context = "\n".join(retrieved_docs)
+        if len(context) > 2000:
+            context = context[:2000] + "..."
 
-        context = "\n".join(retrieved_docs)[:2000]
-        full_prompt = f"""You are Suvidha. A helpful customer support chatbot for the {domain} domain. 
+        full_prompt = f"""You are Suvidha, a helpful customer support chatbot for the {domain} domain. 
 Use the following knowledge base to answer the user's question accurately:
 
 {context}
@@ -73,6 +72,18 @@ def ping():
 def root():
     return "Chatbot server running.", 200
 
-# Only run when executed directly, not when imported
+@app.route('/debug', methods=['GET'])
+def debug():
+    api_key = os.getenv("GOOGLE_API_KEY")
+    data_path = os.path.exists("data/ecommerce_index.bin") and os.path.exists("data/ecommerce_documents.pkl")
+    return jsonify({
+        "google_api_key_found": bool(api_key),
+        "faiss_index_found": data_path
+    })
+
+# Warm-up embedding model and Gemini model
+_ = vector.embed_model  # Preload embedding model
+# generation.py already loads the Gemini model at module level
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
