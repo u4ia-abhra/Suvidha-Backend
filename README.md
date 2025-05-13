@@ -29,7 +29,7 @@ Suvidha is a domain-aware AI chatbot that uses **Retrieval-Augmented Generation 
 
 ## 🧠 Architecture
 
-<img src="assets/SuvidhaModel.png" alt="Suvidha Architecture" width="600"/>
+<img src="assets/SuvidhaModel.png" alt="Suvidha Architecture" height="600"/>
 ![Suvidha Architecture](assets/SuvidhaModel.png)
 
 
