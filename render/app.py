@@ -43,7 +43,7 @@ def chat():
             print("⚠️ No relevant documents found")
             return jsonify({"error": "No relevant documents found."}), 404
 
-        context = "\n".join(retrieved_docs)[:2000]  # limit context length
+        context = "\n".join(retrieved_docs)[:2000]
         full_prompt = f"""You are Suvidha. A helpful customer support chatbot for the {domain} domain. 
 Use the following knowledge base to answer the user's question accurately:
 
@@ -69,9 +69,10 @@ Assistant:"""
 def ping():
     return "Server is live!", 200
 
-if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port=5000)
-
 @app.route('/', methods=['GET'])
 def root():
     return "Chatbot server running.", 200
+
+# Only run when executed directly, not when imported
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
