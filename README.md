@@ -29,18 +29,8 @@ Suvidha is a domain-aware AI chatbot that uses **Retrieval-Augmented Generation 
 
 ## 🧠 Architecture
 
-```mermaid
-graph TD
-A[User Query] --> B[Flutter App]
-B --> C[Flask API (/chat)]
-C --> D[FAISS Vector Search]
-D --> E[Relevant Docs]
-E --> F[Prompt Builder]
-F --> G[Gemini LLM]
-G --> H[Response Returned to User]
-```
+![Chat Screen](assets/Suvidha Model.png)
 
----
 
 ## 🚀 Running Locally
 
