@@ -39,7 +39,8 @@ def chat():
 
         log_memory("AFTER DOC RETRIEVAL")
 
-        context = "\n".join(retrieved_docs)
+        context = "
+".join(retrieved_docs)
         if len(context) > 2000:
             context = context[:2000] + "..."
 
