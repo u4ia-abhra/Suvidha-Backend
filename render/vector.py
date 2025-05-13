@@ -5,10 +5,11 @@ from sentence_transformers import SentenceTransformer
 import pickle
 import os
 
+embed_model = SentenceTransformer("paraphrase-MiniLM-L3-v2")
+
 # Retrieval function
 def retrieve_docs(domain, query, top_k=1):
     # Load embedding model once
-    embed_model = SentenceTransformer("paraphrase-MiniLM-L3-v2")
     try:
         index_path = f"data/{domain}_index.bin"
         docs_path = f"data/{domain}_documents.pkl"
