@@ -37,7 +37,7 @@ class VectorSearcher:
             self.docs = pickle.load(f)
         logger.info(f"[{self.domain}] Documents loaded successfully.")
 
-    def retrieve_docs(self, query: str, top_k: int = 2) -> Optional[List[str]]:
+    def retrieve_docs(self, query: str, top_k: int = 10) -> Optional[List[str]]:
         """
         Retrieves the top_k most relevant documents for a given query.
         Uses a timeout to ensure retrieval is fast.
@@ -54,7 +54,7 @@ class VectorSearcher:
         try:
             with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
                 future = executor.submit(_search)
-                retrieved = future.result(timeout=0.5)  # 0.5s timeout for retrieval
+                retrieved = future.result(timeout=5.0)  # 5.0s timeout for retrieval
             if not retrieved:
                 logger.warning(f"[{self.domain}] No documents found for query: {query}")
                 return None
