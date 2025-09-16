@@ -5,7 +5,7 @@ google-generativeai
 python-dotenv
 torch
 transformers
-Flask
+Flask[async]
 gunicorn
 flask_cors
 cachetools
